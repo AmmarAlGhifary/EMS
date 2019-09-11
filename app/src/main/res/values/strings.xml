@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">EMS</string>
+    <string name="forum_discussion">Forum Discussion</string>
+    <string name="inet_news">Inet News</string>
+    <string name="overtime">Overtime</string>
+    <string name="attedance">Attedance</string>
+    <string name="leave">Leave</string>
+    <string name="employee_data">Employee Data</string>
+    <string name="try_putting_a_image_here">//Try Putting a image here</string>
+    <string name="red">red</string>
+    <string name="blue">blue</string>
+    <string name="green">green</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

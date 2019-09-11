@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#331919"
+        tools:context=".ui.MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvNews"
+            android:layout_width="371dp"
+            android:layout_height="89dp"
+            android:background="#AF2525"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:background="#9C27B0"
+                 android:gravity="center"
+                 android:orientation="horizontal"
+                 android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/imgList"
+                        android:layout_width="76dp"
+                        android:layout_height="50dp"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:contentDescription="@string/try_putting_a_image_here"/>
+
+                 <TextView
+                     android:id="@+id/txtLandmark"
+                     android:layout_width="274dp"
+                     android:layout_height="wrap_content"
+                     android:paddingStart="20dp"
+                     android:text="@string/inet_news"
+                     android:textSize="30sp"
+                     android:textStyle="bold" />
+
+             </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvForum"
+            android:layout_width="371dp"
+            android:layout_height="89dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvNews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FF9800"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/imgForum"
+                    android:layout_width="76dp"
+                    android:layout_height="50dp"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:contentDescription="@string/try_putting_a_image_here" />
+
+                <TextView
+                    android:id="@+id/txtForum"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:text="@string/forum_discussion"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEmployee"
+            android:layout_width="371dp"
+            android:layout_height="89dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvForum">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00BCD4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/imgEmployee"
+                    android:layout_width="76dp"
+                    android:layout_height="50dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/txtEmployee"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:text="@string/employee_data"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvAttedance"
+            android:layout_width="371dp"
+            android:layout_height="89dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvEmployee">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FF5722"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/imgAttedance"
+                    android:layout_width="76dp"
+                    android:layout_height="50dp"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:contentDescription="@string/try_putting_a_image_here"/>
+
+                <TextView
+                    android:id="@+id/txtAttedance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:text="@string/attedance"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/ScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    tools:actionBarNavMode="standard" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvOvertime"
+        android:layout_width="371dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvAttedance"
+        app:layout_constraintVertical_bias="0.021">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4ACE25"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/imgOvertime"
+                android:layout_width="76dp"
+                android:layout_height="50dp"
+                tools:srcCompat="@tools:sample/avatars"
+                android:contentDescription="@string/try_putting_a_image_here"/>
+
+            <TextView
+                android:id="@+id/txtOvertime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="20dp"
+                android:text="@string/overtime"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvLeave"
+            android:layout_width="371dp"
+            android:layout_height="89dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvOvertime">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFEB3B"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/imgLeave"
+                    android:layout_width="76dp"
+                    android:layout_height="50dp"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:contentDescription="@string/try_putting_a_image_here"/>
+
+                <TextView
+                    android:id="@+id/Leave"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:text="@string/leave"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

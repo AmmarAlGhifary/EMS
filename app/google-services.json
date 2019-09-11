@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "650667212765",
+    "firebase_url": "https://emsfirebaseproject-ee1a4.firebaseio.com",
+    "project_id": "emsfirebaseproject-ee1a4",
+    "storage_bucket": "emsfirebaseproject-ee1a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650667212765:android:784785c0977e400bffc034",
+        "android_client_info": {
+          "package_name": "com.blogspot.yourfavoritekaisar.ems"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650667212765-8r5pfc4ha0r2qv8aurknc24bldgo6j6h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blogspot.yourfavoritekaisar.ems",
+            "certificate_hash": "d064001e414b389ae53a196b7b9c8cbf59d92124"
+          }
+        },
+        {
+          "client_id": "650667212765-478as03484ebsiodeldv8t5jic4ku9gm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7DCcBUP1zk1VsoQdArl9DgyF-GZNrEmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650667212765-478as03484ebsiodeldv8t5jic4ku9gm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
