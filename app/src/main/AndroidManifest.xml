@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewsInet.Pengumuman.DetailPengumumanActivity"></activity>
+        <activity android:name=".NewsInet.Pengumuman.Detail.DetailPengumumanActivity"></activity>
         <activity android:name=".NewsInet.PagerNewsActivity" />
         <activity android:name=".ui.NewsActivity" />
         <activity android:name=".ui.SplashActivity">

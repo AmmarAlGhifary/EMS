@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.blogspot.yourfavoritekaisar.ems.NewsInet.Pengumuman.PengumumanFragment;
+import com.blogspot.yourfavoritekaisar.ems.NewsInet.Pengumuman.VIew.PengumumanFragment;
 import com.blogspot.yourfavoritekaisar.ems.NewsInet.PeraturanFragment;
 
 

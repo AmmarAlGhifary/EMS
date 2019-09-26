@@ -1,4 +1,4 @@
-package com.blogspot.yourfavoritekaisar.ems.NewsInet.Pengumuman;
+package com.blogspot.yourfavoritekaisar.ems.NewsInet.Pengumuman.VIew;
 
 
 import android.os.Bundle;
