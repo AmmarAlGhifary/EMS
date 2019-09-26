@@ -1,56 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="402dp"
-        android:layout_height="330dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="8dp">
 
-        <LinearLayout
-            android:layout_width="396dp"
-            android:layout_height="315dp"
-            android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imgPeraturan"
+                android:id="@+id/img_Pengumuman"
+                tools:srcCompat="@tools:sample/avatars"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="132dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                android:layout_height="200dp" />
 
             <TextView
-                android:id="@+id/idTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/judul"
-                android:textAlignment="center"
-                android:textSize="24sp" />
+                android:id="@+id/txt_title"
+                android:textColor="#262626"
+                android:layout_below="@id/img_Pengumuman"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:text="Meeting"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="104dp"
-                android:text="@string/Filler"
-                android:textSize="10sp" />
+                android:id="@+id/txt_time"
+                android:textColor="#666666"
+                android:layout_below="@id/txt_title"
+                android:layout_marginLeft="16dp"
+                android:text="11-12-2019"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="142dp"
-                android:layout_height="42dp"
-                android:layout_marginHorizontal="250dp"
-                android:ems="10"
-                android:hint="19/2/2019"
-                android:inputType="date"
-                android:textAlignment="textEnd" />
 
-        </LinearLayout>
+
+
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
