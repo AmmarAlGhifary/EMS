@@ -13,4 +13,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_1">Tab 1</string>
+    <string name="tab_2">Tab 2</string>
+    <string name="judul">Bapak Kau</string>
+    <string name="Filler">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsuml orem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare interdum dignissim. Nunc facilisis ultrices massa ut dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse placerat, nibh et molestie porttitor, massa sapien sollicitudin ex, vitae ornare purus dolor sit amet elit. Nulla finibus eget magna quis feugiat. Vivamus interdum bibendum hendrerit. Curabitur non hendrerit eros. Aenean varius non purus nec maximus. Vestibulum rhoncus varius tortor eu fermentum.</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.blogspot.yourfavoritekaisar.ems.NewsInet;
+package com.blogspot.yourfavoritekaisar.ems.NewsInet.Pengumuman;
 
 
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import com.blogspot.yourfavoritekaisar.ems.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PeraturanFragment extends Fragment {
+public class PengumumanFragment extends Fragment {
 
 
-    public PeraturanFragment() {
+    public PengumumanFragment() {
         // Required empty public constructor
     }
 
@@ -26,8 +26,7 @@ public class PeraturanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_peraturan, container, false);
+        return inflater.inflate(R.layout.fragment_pengumuman, container, false);
     }
-
 
 }

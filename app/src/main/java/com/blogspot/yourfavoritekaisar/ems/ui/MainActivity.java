@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 
+import com.blogspot.yourfavoritekaisar.ems.NewsInet.PagerNewsActivity;
 import com.blogspot.yourfavoritekaisar.ems.R;
 
 import butterknife.BindView;
@@ -68,10 +69,11 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cvNews:
-//                Intent pindah = new Intent(MainActivity.this, NewsActivity.class);
-//                startActivity(pindah);
+                Intent pindah = new Intent(MainActivity.this, PagerNewsActivity.class);
+                startActivity(pindah);
                 break;
             case R.id.cvForum:
+
                 break;
             case R.id.cvEmployee:
                 break;
