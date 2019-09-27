@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.blogspot.yourfavoritekaisar.ems.Forum.chatroom"
+    android:weightSum="1">
+
+    <ScrollView
+        android:layout_width="378dp"
+        android:layout_height="157dp"
+        android:id="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="1.04">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <EditText
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_alignTop="@+id/button"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/button"
+            android:layout_weight="1.02" />
+
+        <Button
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/button"
+            style="?android:attr/borderlessButtonStyle"
+            android:drawableLeft="@drawable/abc_vector_test"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+    </LinearLayout>
+
+</LinearLayout>
