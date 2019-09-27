@@ -28,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
                             sleep(100);
                         }
                     }
-                }catch (Exception e) {
+                }catch (Exception ignored) {
 
                 } finally {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);

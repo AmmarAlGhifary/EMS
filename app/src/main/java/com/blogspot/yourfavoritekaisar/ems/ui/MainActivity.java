@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 
+import com.blogspot.yourfavoritekaisar.ems.Forum.ForumActivity;
 import com.blogspot.yourfavoritekaisar.ems.NewsInet.PagerNewsActivity;
 import com.blogspot.yourfavoritekaisar.ems.R;
 
@@ -73,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(pindah);
                 break;
             case R.id.cvForum:
-
-                break;
+                Intent Forums = new Intent(MainActivity.this, ForumActivity.class);
+                startActivity(Forums);
             case R.id.cvEmployee:
                 break;
             case R.id.cvAttedance:
