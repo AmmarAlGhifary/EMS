@@ -6,14 +6,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.widget.NestedScrollView;
-
 import com.blogspot.yourfavoritekaisar.ems.Forum.ForumActivity;
 import com.blogspot.yourfavoritekaisar.ems.NewsInet.PagerNewsActivity;
 import com.blogspot.yourfavoritekaisar.ems.R;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.widget.NestedScrollView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -72,17 +71,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.cvNews:
                 Intent pindah = new Intent(MainActivity.this, PagerNewsActivity.class);
                 startActivity(pindah);
-                break;
             case R.id.cvForum:
                 Intent Forums = new Intent(MainActivity.this, ForumActivity.class);
                 startActivity(Forums);
             case R.id.cvEmployee:
-                break;
-            case R.id.cvAttedance:
-                break;
-            case R.id.cvOvertime:
-                break;
             case R.id.cvLeave:
+            case R.id.cvOvertime:
+            case R.id.cvAttedance:
                 break;
         }
     }

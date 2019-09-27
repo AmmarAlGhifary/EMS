@@ -1,9 +1,5 @@
 package com.blogspot.yourfavoritekaisar.ems.Forum;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -25,13 +21,18 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class ForumActivity extends AppCompatActivity  {
-    private  EditText room_name;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ForumActivity extends AppCompatActivity {
+    private EditText room_name;
     private String name;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
 
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> list_of_rooms = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +47,8 @@ public class ForumActivity extends AppCompatActivity  {
         request_user_name();
         add_room.setOnClickListener(view -> {
 
-            Map<String,Object> map = new HashMap<>();
-            map.put(room_name.getText().toString(),"Testing");
+            Map<String, Object> map = new HashMap<>();
+            map.put(room_name.getText().toString(), "");
             root.updateChildren(map);
 
         });
@@ -73,8 +74,8 @@ public class ForumActivity extends AppCompatActivity  {
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
 
             Intent I = new Intent(getApplicationContext(), chatroom.class);
-            I.putExtra("room_name",((TextView)view).getText().toString());
-            I.putExtra("user_name",name);
+            I.putExtra("room_name", ((TextView) view).getText().toString());
+            I.putExtra("user_name", name);
             startActivity(I);
         });
 
