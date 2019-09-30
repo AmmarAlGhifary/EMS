@@ -8,13 +8,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.blogspot.yourfavoritekaisar.ems.R;
 import com.firebase.client.Firebase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
@@ -34,9 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         Firebase.setAndroidContext(this);
 
-        login.setOnClickListener(v -> {
-            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-        });
+        login.setOnClickListener(v -> startActivity(new Intent(RegisterActivity.this, LoginActivity.class)));
 
         registerButton.setOnClickListener(v -> {
             user = username.getText().toString();
@@ -59,42 +61,35 @@ public class RegisterActivity extends AppCompatActivity {
 
                 String url = "https://chatapp-60323.firebaseio.com/users.json";
 
-                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String s) {
-                        Firebase reference = new Firebase("https://chatapp-60323.firebaseio.com/users");
+                StringRequest request = new StringRequest(Request.Method.GET, url, s -> {
+                    Firebase reference = new Firebase("https://chatapp-60323.firebaseio.com/users");
 
-                        if (s.equals("null")) {
-                            reference.child(user).child("password").setValue(pass);
-                            Toast.makeText(RegisterActivity.this, "registration successful", Toast.LENGTH_LONG).show();
-                        } else {
-                            try {
-                                JSONObject obj = new JSONObject(s);
+                    if (s.equals("null")) {
+                        reference.child(user).child("password").setValue(pass);
+                        Toast.makeText(RegisterActivity.this, "registration successful", Toast.LENGTH_LONG).show();
+                    } else {
+                        try {
+                            JSONObject obj = new JSONObject(s);
 
-                                if (!obj.has(user)) {
-                                    reference.child(user).child("password").setValue(pass);
-                                    Toast.makeText(RegisterActivity.this, "registration successful", Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(RegisterActivity.this, "username already exists", Toast.LENGTH_LONG).show();
-                                }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                            if (!obj.has(user)) {
+                                reference.child(user).child("password").setValue(pass);
+                                Toast.makeText(RegisterActivity.this, "registration successful", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "username already exists", Toast.LENGTH_LONG).show();
                             }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-
-                        pd.dismiss();
                     }
 
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        System.out.println("" + volleyError);
-                        pd.dismiss();
-                    }
+                    pd.dismiss();
+                }, volleyError -> {
+                    System.out.println("" + volleyError);
+                    pd.dismiss();
                 });
 
-                RequestQueue rQueue = Volley.newRequestQueue(Register.this);
+                RequestQueue rQueue = Volley.newRequestQueue(RegisterActivity.this);
                 rQueue.add(request);
             }
         });
