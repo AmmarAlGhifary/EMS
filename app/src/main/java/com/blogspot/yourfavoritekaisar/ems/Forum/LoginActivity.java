@@ -19,7 +19,10 @@ import com.blogspot.yourfavoritekaisar.ems.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity  {
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class LoginActivity extends AppCompatActivity {
     TextView registerUser;
     EditText username, password;
     Button loginButton;
@@ -30,46 +33,42 @@ public class LoginActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
         registerUser = findViewById(R.id.registerButton);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        login = findViewById(R.id.login);
-        registerUser.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
+        login = findViewById(R.id.register);
+
 
         loginButton.setOnClickListener(v -> {
             user = username.getText().toString();
             pass = password.getText().toString();
 
-            if(user.equals("")){
+            if (user.equals("")) {
                 username.setError("can't be blank");
-            }
-            else if(pass.equals("")){
+            } else if (pass.equals("")) {
                 password.setError("can't be blank");
-            }
-            else{
+            } else {
                 String url = "https://chatapp-60323.firebaseio.com/users.json";
                 final ProgressDialog pd = new ProgressDialog(LoginActivity.this);
                 pd.setMessage("Loading...");
                 pd.show();
 
                 StringRequest request = new StringRequest(Request.Method.GET, url, s -> {
-                    if(s.equals("null")){
+                    if (s.equals("null")) {
                         Toast.makeText(LoginActivity.this, "user not found", Toast.LENGTH_LONG).show();
-                    }
-                    else{
+                    } else {
                         try {
                             JSONObject obj = new JSONObject(s);
 
-                            if(!obj.has(user)){
+                            if (!obj.has(user)) {
                                 Toast.makeText(LoginActivity.this, "user not found", Toast.LENGTH_LONG).show();
-                            }
-                            else if(obj.getJSONObject(user).getString("password").equals(pass)){
+                            } else if (obj.getJSONObject(user).getString("password").equals(pass)) {
                                 UsersDetail.username = user;
                                 UsersDetail.password = pass;
                                 startActivity(new Intent(LoginActivity.this, UserActivity.class));
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(LoginActivity.this, "incorrect password", Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
@@ -88,5 +87,11 @@ public class LoginActivity extends AppCompatActivity  {
             }
 
         });
+    }
+
+    @OnClick(R.id.register)
+    public void onViewClicked() {
+        Intent pindah = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(pindah);
     }
 }

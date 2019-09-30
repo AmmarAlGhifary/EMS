@@ -20,6 +20,9 @@ import com.firebase.client.Firebase;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class RegisterActivity extends AppCompatActivity {
     EditText username, password;
     Button registerButton;
@@ -30,11 +33,12 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        ButterKnife.bind(this);
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         registerButton = findViewById(R.id.registerButton);
-        login = findViewById(R.id.login);
+        login = findViewById(R.id.RegisterLogin);
 
         Firebase.setAndroidContext(this);
 
@@ -93,5 +97,11 @@ public class RegisterActivity extends AppCompatActivity {
                 rQueue.add(request);
             }
         });
+    }
+
+    @OnClick(R.id.RegisterLogin)
+    public void onViewClicked() {
+        Intent pindah = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(pindah);
     }
 }

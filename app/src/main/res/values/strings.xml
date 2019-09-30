@@ -25,4 +25,5 @@
     <string name="click_here_to_register">Don\'t have an account?, click here</string>
     <string name="login">Lets! Go!</string>
     <string name="write_a_message">Start Discussion</string>
+    <string name="no_users_found">no user found</string>
 </resources>
