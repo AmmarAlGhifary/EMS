@@ -21,4 +21,5 @@
     <string name="register">Lets! Go!!</string>
     <string name="enter_username">Type In your username</string>
     <string name="enter_password">Type in your password</string>
+    <string name="inet_global_indo">Inet Global Indo</string>
 </resources>
