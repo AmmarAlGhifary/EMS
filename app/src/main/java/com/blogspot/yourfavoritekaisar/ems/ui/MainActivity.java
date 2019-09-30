@@ -6,13 +6,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.blogspot.yourfavoritekaisar.ems.Forum.ForumActivity;
-import com.blogspot.yourfavoritekaisar.ems.NewsInet.PagerNewsActivity;
-import com.blogspot.yourfavoritekaisar.ems.R;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
+
+import com.blogspot.yourfavoritekaisar.ems.Forum.ForumActivity;
+import com.blogspot.yourfavoritekaisar.ems.Forum.chatroom;
+import com.blogspot.yourfavoritekaisar.ems.NewsInet.PagerNewsActivity;
+import com.blogspot.yourfavoritekaisar.ems.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -69,15 +71,20 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cvNews:
-                Intent pindah = new Intent(MainActivity.this, PagerNewsActivity.class);
-                startActivity(pindah);
+                Intent news = new Intent(MainActivity.this, PagerNewsActivity.class);
+                startActivity(news);
+                break;
             case R.id.cvForum:
-                Intent Forums = new Intent(MainActivity.this, ForumActivity.class);
-                startActivity(Forums);
+                Intent forum = new Intent(MainActivity.this, ForumActivity.class);
+                startActivity(forum);
+                break;
             case R.id.cvEmployee:
-            case R.id.cvLeave:
-            case R.id.cvOvertime:
+                break;
             case R.id.cvAttedance:
+                break;
+            case R.id.cvOvertime:
+                break;
+            case R.id.cvLeave:
                 break;
         }
     }

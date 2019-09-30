@@ -31,7 +31,7 @@ public class chatroom extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatroom);
+        setContentView(R.layout.chatroom_activity);
         Button btn_send_msg = findViewById(R.id.button);
         input_msg = findViewById(R.id.editText);
         chat_conversation = findViewById(R.id.textView);
