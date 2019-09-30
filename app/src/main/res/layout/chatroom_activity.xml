@@ -4,48 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.blogspot.yourfavoritekaisar.ems.Forum.chatroom"
-    android:weightSum="1">
+    tools:context=".Forum.chatroom">
 
     <ScrollView
-        android:layout_width="378dp"
-        android:layout_height="157dp"
-        android:id="@+id/scrollView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_weight="1.04">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView" />
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+        android:id="@+id/scrollView">
+        <RelativeLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/layout1">
+            </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 
-    <LinearLayout
+    <include
+        layout="@layout/message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
-        <EditText
-            android:layout_width="59dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_alignTop="@+id/button"
-            android:layout_alignParentStart="true"
-            android:layout_toStartOf="@+id/button"
-            android:layout_weight="1.02" />
-
-        <Button
-            android:layout_width="52dp"
-            android:layout_height="wrap_content"
-
-            android:id="@+id/button"
-            style="?android:attr/borderlessButtonStyle"
-            android:drawableLeft="@drawable/abc_vector_test"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
-
-    </LinearLayout>
-
+        android:gravity="bottom"
+        android:layout_marginTop="5dp"/>
 </LinearLayout>

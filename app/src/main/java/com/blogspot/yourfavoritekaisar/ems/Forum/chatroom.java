@@ -1,101 +1,118 @@
 package com.blogspot.yourfavoritekaisar.ems.Forum;
 
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.blogspot.yourfavoritekaisar.ems.R;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class chatroom extends AppCompatActivity  {
-
-    private EditText input_msg;
-    private TextView chat_conversation;
-    private String user_name;
-    private DatabaseReference root;
-    private String temp_key;
+public class chatroom extends AppCompatActivity {
+    LinearLayout layout;
+    RelativeLayout layout_2;
+    ImageView sendButton;
+    EditText messageArea;
+    ScrollView scrollView;
+    Firebase reference1, reference2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chatroom_activity);
-        Button btn_send_msg = findViewById(R.id.button);
-        input_msg = findViewById(R.id.editText);
-        chat_conversation = findViewById(R.id.textView);
-        user_name = Objects.requireNonNull(Objects.requireNonNull(getIntent().getExtras()).get("user_name")).toString();
-        String room_name = Objects.requireNonNull(getIntent().getExtras().get("room_name")).toString();
-        setTitle("Room - "+ room_name);
 
-        root = FirebaseDatabase.getInstance().getReference().child(room_name);
+        layout = findViewById(R.id.layout1);
+        layout_2 = findViewById(R.id.layout2);
+        sendButton = findViewById(R.id.sendButton);
+        messageArea = findViewById(R.id.messageArea);
+        scrollView = findViewById(R.id.scrollView);
 
-        btn_send_msg.setOnClickListener(view -> {
+        Firebase.setAndroidContext(this);
+        reference1 = new Firebase("https://chatapp-60323.firebaseio.com/messages/" + UsersDetail.username + "_" + UsersDetail.chatWith);
+        reference2 = new Firebase("https://chatapp-60323.firebaseio.com/messages/" + UsersDetail.chatWith + "_" + UsersDetail.username);
 
-            Map<String,Object> map = new HashMap<>();
-            temp_key = root.push().getKey();
-            root.updateChildren(map);
+        sendButton.setOnClickListener(v -> {
+            String messageText = messageArea.getText().toString();
 
-            DatabaseReference message_root = root.child(temp_key);
-            Map<String,Object> map2 = new HashMap<>();
-            map2.put("name",user_name);
-            map2.put("msg",input_msg.getText().toString());
-
-            message_root.updateChildren(map2);
-
-        });
-
-        root.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String s) {
-
-                append_chat_conversatin(dataSnapshot);
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String s) {
-                append_chat_conversatin(dataSnapshot);
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            if(!messageText.equals("")){
+                Map<String, String> map = new HashMap<>();
+                map.put("message", messageText);
+                map.put("user", UsersDetail.username);
+                reference1.push().setValue(map);
+                reference2.push().setValue(map);
+                messageArea.setText("");
             }
         });
 
+        reference1.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(com.firebase.client.DataSnapshot dataSnapshot, String s) {
+                Map map = dataSnapshot.getValue(Map.class);
+                String message = Objects.requireNonNull(map.get("message")).toString();
+                String userName = Objects.requireNonNull(map.get("user")).toString();
+
+                if(userName.equals(UsersDetail.username)){
+                    addMessageBox(message, 1);
+                }
+                else{
+                    addMessageBox(message, 2);
+                }
+            }
+
+            @Override
+            public void onChildChanged(com.firebase.client.DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(com.firebase.client.DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
-    private void append_chat_conversatin(DataSnapshot dataSnapshot) {
-        Iterator i = dataSnapshot.getChildren().iterator();
-        while (i.hasNext())
-        {
-            String chat_msg = (String) ((DataSnapshot) i.next()).getValue();
-            String chat_user_name = (String) ((DataSnapshot) i.next()).getValue();
+    public void addMessageBox(String message, int type){
+        TextView textView = new TextView(chatroom.this);
+        textView.setText(message);
 
-            chat_conversation.append(chat_user_name + " : "+ chat_msg +"\n");
+        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp2.weight = 7.0f;
 
+        if(type == 1) {
+            lp2.gravity = Gravity.LEFT;
+            textView.setBackgroundResource(R.drawable.bubble_in);
         }
+        else{
+            lp2.gravity = Gravity.RIGHT;
+            textView.setBackgroundResource(R.drawable.bubble_out);
+        }
+        textView.setLayoutParams(lp2);
+        layout.addView(textView);
+        scrollView.fullScroll(View.FOCUS_DOWN);
     }
 }

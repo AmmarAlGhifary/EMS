@@ -22,4 +22,7 @@
     <string name="enter_username">Type In your username</string>
     <string name="enter_password">Type in your password</string>
     <string name="inet_global_indo">Inet Global Indo</string>
+    <string name="click_here_to_register">Don\'t have an account?, click here</string>
+    <string name="login">Lets! Go!</string>
+    <string name="write_a_message">Start Discussion</string>
 </resources>

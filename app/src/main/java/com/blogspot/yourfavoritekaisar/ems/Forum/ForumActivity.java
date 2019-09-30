@@ -31,7 +31,7 @@ public class ForumActivity extends AppCompatActivity  {
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
 
     private ArrayAdapter<String> arrayAdapter;
-    private ArrayList<String> list_of_rooms = new ArrayList<String>();
+    private ArrayList<String> list_of_rooms = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
