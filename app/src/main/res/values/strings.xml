@@ -7,7 +7,7 @@
     <string name="leave">Leave</string>
     <string name="employee_data">Employee Data</string>
     <string name="try_putting_a_image_here">//Try Putting a image here</string>
-    <string name="red">red</string>
+    <string name="red">red</string>wa
     <string name="blue">blue</string>
     <string name="green">green</string>
 
@@ -17,4 +17,8 @@
     <string name="tab_2">Tab 2</string>
     <string name="judul">Bapak Kau</string>
     <string name="Filler">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsuml orem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare interdum dignissim. Nunc facilisis ultrices massa ut dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse placerat, nibh et molestie porttitor, massa sapien sollicitudin ex, vitae ornare purus dolor sit amet elit. Nulla finibus eget magna quis feugiat. Vivamus interdum bibendum hendrerit. Curabitur non hendrerit eros. Aenean varius non purus nec maximus. Vestibulum rhoncus varius tortor eu fermentum.</string>
+    <string name="click_here_to_login">Click Here To Login</string>
+    <string name="register">Lets! Go!!</string>
+    <string name="enter_username">Type In your username</string>
+    <string name="enter_password">Type in your password</string>
 </resources>
