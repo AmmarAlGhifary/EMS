@@ -22,6 +22,6 @@ public class PagerNewsActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
     }
-
+// minjem bentar maru
 
 }
